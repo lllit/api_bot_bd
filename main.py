@@ -127,9 +127,12 @@ async def build_answer(result: list[dict[str, Any]], human_query: str) -> str | 
     Given a user's question and the answer in SQL rows of the database from which the user wants to get the answer,
     write an answer to the user's question.
 
-    I want you to return an answer in human language. 
+    I want you to return an answer in human language, I want the text to be in markdown in case the user asks for tables I also want it rendered in markdown,
 
-    You have to pass the response from the supabase database to a human-understandable response.
+    
+    If the user asks to delete something (whatever) always ask if you are sure to do this operation.
+
+    You have to pass the response from the supabase database to a human understandable response.    
 
     <user_question> 
     {human_query}
@@ -145,11 +148,11 @@ async def build_answer(result: list[dict[str, Any]], human_query: str) -> str | 
         messages=[
             {
                 "role": "system",
-                "content": f"Vas a responder en lenguaje humanoa y responder a la pregunta del usuario basado en la respuesta SQL proporcionada. {system_message}"
+                "content": f"Vas a responder en lenguaje humano y responder a la pregunta del usuario basado en la respuesta SQL proporcionada. {system_message}, recuerda devolver el texto en formato markdown.",
             },
             {
                 "role": "user",
-                "content": f"Esta es la pregunta principal: {human_query}, tienes que creame una respuesta en base a esa pregunta, solo responde en español y basándote en la respuesta SQL proporcionada: {result}",
+                "content": f"Esta es la pregunta principal: {human_query}, tienes que creame una respuesta en base a esa pregunta, solo responde en español y basándote en la respuesta SQL proporcionada: {result}, recuerda devolver el texto en formato markdown. Trata de solo devolver la respuesta a la pregunta principal, sin ser tan rebundante",
             }
         ],
         model="llama3-8b-8192",
