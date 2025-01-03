@@ -148,11 +148,11 @@ async def build_answer(result: list[dict[str, Any]], human_query: str) -> str | 
         messages=[
             {
                 "role": "system",
-                "content": f"Vas a responder en lenguaje humano y responder a la pregunta del usuario basado en la respuesta SQL proporcionada. {system_message}, recuerda devolver el texto en formato markdown.",
+                "content": f"Vas a responder en lenguaje humano y responder a la pregunta del usuario basado en la respuesta SQL proporcionada. {system_message}, Solo tienes que remarcar los titulos necesarios, no quiero que todo mi texto sea en negritas, solo los titulos necesarios",
             },
             {
                 "role": "user",
-                "content": f"Esta es la pregunta principal: {human_query}, tienes que creame una respuesta en base a esa pregunta, solo responde en español y basándote en la respuesta SQL proporcionada: {result}, recuerda devolver el texto en formato markdown. Trata de solo devolver la respuesta a la pregunta principal, sin ser tan rebundante",
+                "content": f"Esta es la pregunta principal: {human_query}, tienes que creame una respuesta en base a esa pregunta, solo responde en español y basándote en la respuesta SQL proporcionada: {result}, recuerda devolver el texto en formato markdown. Trata de solo devolver la respuesta a la pregunta principal, sin ser tan rebundante. Solo tienes que remarcar los titulos necesarios, no quiero que todo mi texto sea en negritas, solo los titulos necesarios",
             }
         ],
         model="llama3-8b-8192",
