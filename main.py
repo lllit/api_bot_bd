@@ -113,16 +113,19 @@ async def human_query(payload: PostHumanQueryPayload, current_user: str = Depend
 
 
 @app.post(
-    path="/human_query_airbnb",
+    path="/human_response_airbnb",
     name="Human Query Airbnb",
     operation_id="post_human_query_airbnb",
     description="It obtains a natural language query, reads the schema brought to it, and returns in natural language."
 )
-async def human_query_airbnb(payload: PostHumanQueryPayload, current_user: str = Depends(get_current_user)) -> dict[str, str]:
+async def human_response_airbnb(payload: PostHumanQueryPayload, current_user: str = Depends(get_current_user)) -> dict[str, str]:
     try:
         # Transforma la pregunta a respuesta
         respuesta_llm = await human_query_airbnb(payload.human_query)
         
+        # Asegúrate de que respuesta_llm sea una cadena
+        if not isinstance(respuesta_llm, str):
+            respuesta_llm = str(respuesta_llm)
 
         # Crear el payload para enviar a la API
         payload_dict = {
@@ -137,6 +140,10 @@ async def human_query_airbnb(payload: PostHumanQueryPayload, current_user: str =
         payload_dict = {
             "message": "Vuelve a preguntar"
         }
+
+        print({"message": f"Error: {str(e)}"})
+
+
         return payload_dict
 
 
