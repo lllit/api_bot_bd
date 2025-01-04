@@ -142,7 +142,7 @@ async def build_answer(result: list[dict[str, Any]], human_query: str) -> str | 
     </sql_response>
     """
 
-    
+#    "content": f"Esta es la pregunta principal: {human_query}, tienes que creame una respuesta en base a esa pregunta, solo responde en español y basándote en la respuesta SQL proporcionada. Respuesta SQL: {result}, Quiero que en el caso de que generes una tabla lo hagas en markdown, si no es una tabla solo dame texto normal. Trata de solo devolver la respuesta a la pregunta principal, sin ser tan rebundante.", 
 
     response_llm = cliente.chat.completions.create(
         messages=[
@@ -152,8 +152,9 @@ async def build_answer(result: list[dict[str, Any]], human_query: str) -> str | 
             },
             {
                 "role": "user",
-                "content": f"Esta es la pregunta principal: {human_query}, tienes que creame una respuesta en base a esa pregunta, solo responde en español y basándote en la respuesta SQL proporcionada. Respuesta SQL: {result}, Quiero que en el caso de que generes una tabla lo hagas en markdown, si no es una tabla solo dame texto normal. Trata de solo devolver la respuesta a la pregunta principal, sin ser tan rebundante.",
+                "content": f"Esta es la pregunta principal: {human_query}, tienes que crearme una respuesta en base a esa pregunta, solo responde en español y basándote en la respuesta SQL proporcionada. Respuesta SQL: {result}. Quiero que en el caso de que generes una tabla lo hagas en Markdown, si no es una tabla solo dame texto normal. Trata de solo devolver la respuesta a la pregunta principal, sin ser tan redundante. Asegúrate de usar saltos de línea en lugar de etiquetas <br> para el formato de Markdown.",
             }
+            
         ],
         model="llama3-8b-8192",
     )
