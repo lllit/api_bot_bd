@@ -1,5 +1,7 @@
 from database import get_schema
 from utils.client_llm import cliente_llm
+from utils.calendar_airbnb import arriendo_json
+
 
 import ollama
 import asyncio
@@ -30,23 +32,6 @@ async def human_query_to_sql(human_query: str):
     user_message = human_query
 
 
-    # generated_message = ollama.generate(
-    #     model="qwen2.5-coder",
-    #     prompt=user_message, 
-    #     format="json",
-    #     system=system_message,
-    #     template=f"""
-    #     This is the schema of my database in supabase
-    #     <example>{{
-    #         "sql_query": "SELECT * FROM usuarios ORDER BY id ASC LIMIT 1;"
-    #         "original_query": "I want to find the first user that registered in my application."
-    #     }}
-    #     </example>
-    #     <schema>
-    #     {database_schema}
-    #     </schema>
-    #     """
-    #     )
 
     generated_message = cliente.chat.completions.create(
         messages=[
@@ -64,12 +49,6 @@ async def human_query_to_sql(human_query: str):
     )
 
     print("Response: ", generated_message.choices[0].message.content)
-    # Imprime la respuesta completa para depuración
-    #print("Generated Message:", generated_message["response"])
-
-    # Verifica si la respuesta contiene la clave 'response'
-    # if 'response' not in generated_message:
-    #     return {"error": "La respuesta no contiene la clave 'response'"}
 
     response = generated_message.choices[0].message.content
 
@@ -134,7 +113,70 @@ async def response_to_llm(reponse_llm: str):
 
 
 
+async def human_query_airbnb(human_query: str):
+    # Obtener esquema
+    esquema = arriendo_json()
+    
+    system_message = f"""
+    You are a lease manager, you have to respond in a formal casual manner.
+    Based on the outline I am giving you, you have to generate a direct answer to my question. 
 
+    Remember to always answer in Spanish
+
+    This is the scheme 
+    <schema>
+    {esquema}
+    </schema>
+    """
+
+    user_message = human_query
+
+    generated_message = cliente.chat.completions.create(
+        messages=[
+            {
+                "role": "system",
+                "content": system_message
+            },
+            {
+                "role": "user",
+                "content": user_message,
+            }
+        ],
+        #response_format={ "type": "json_object" },
+        model="llama3-8b-8192",
+    )
+
+    response = generated_message.choices[0].message.content
+
+    
+    print("Response ", response)
+
+    return response
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# --------- TEST ------------
 
 async def test_response():
     response = await human_query_to_sql(human_query="Que tablas tengo en mi base de datos")

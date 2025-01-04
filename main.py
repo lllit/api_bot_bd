@@ -4,11 +4,9 @@ from fastapi.security import OAuth2PasswordRequestForm
 from utils.security import create_access_token, get_current_user
 
 import json
-import logging
 import os
-import ollama
 from typing import Any
-from llm import human_query_to_sql
+from llm import human_query_to_sql, human_query_airbnb
 from database import query
 from datetime import timedelta
 
@@ -114,6 +112,32 @@ async def human_query(payload: PostHumanQueryPayload, current_user: str = Depend
     
 
 
+@app.post(
+    path="/human_query_airbnb",
+    name="Human Query Airbnb",
+    operation_id="post_human_query_airbnb",
+    description="It obtains a natural language query, reads the schema brought to it, and returns in natural language."
+)
+async def human_query(payload: PostHumanQueryPayload, current_user: str = Depends(get_current_user)) -> dict[str, str]:
+    try:
+        # Transforma la pregunta a respuesta
+        respuesta_llm = await human_query_airbnb(payload.human_query)
+        
+
+        # Crear el payload para enviar a la API
+        payload_dict = {
+            "message": respuesta_llm
+        }
+
+        return payload_dict
+
+    except Exception as e:
+        print("Error al procesar respuesta: ",e)
+
+        payload_dict = {
+            "message": "Vuelve a preguntar"
+        }
+        return payload_dict
 
 
 
