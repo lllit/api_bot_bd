@@ -1,69 +1,72 @@
+from fastapi import FastAPI
 import icalendar
 import requests
 from pathlib import Path
 import json
 
+app = FastAPI()
 
-def arriendo_json():
-    # URL del archivo .ics
-    url = "https://www.airbnb.cl/calendar/ical/31351779.ics?s=b33143189db89132f106f3939522c5da"
-
-
-    # Descargar el archivo .ics
-    response = requests.get(url)
-    ics_content = response.content
-
-    # Crear la carpeta temp_calendar si no existe
-    temp_calendar_dir = Path("temp_calendar")
-    temp_calendar_dir.mkdir(exist_ok=True)
-
-    # Guardar el archivo .ics en la carpeta temp_calendar
-    ics_path = temp_calendar_dir / "listing-31351779.ics"
-    ics_path.write_bytes(ics_content)
+@app.get("/download_calendar")
+async def download_calendar():
+    try:
+        # URL del archivo .ics
+        url = "https://www.airbnb.cl/calendar/ical/31351779.ics?s=b33143189db89132f106f3939522c5da"
 
 
-    #ics_path = Path("listing-31351779.ics")
+        # Descargar el archivo .ics
+        response = requests.get(url)
+        ics_content = response.content
 
-    with ics_path.open() as f:
-        calendar = icalendar.Calendar.from_ical(f.read())
+        # Crear la carpeta temp_calendar si no existe
+        temp_calendar_dir = Path("temp_calendar")
+        temp_calendar_dir.mkdir(exist_ok=True)
 
-    contador = 1
-
-    dias_arriendo_totales = 0
-
-    arriendos = []
-
-    for event in calendar.walk('VEVENT'):
-        if event.get("SUMMARY") == "Airbnb (Not available)":
-            break
+        # Guardar el archivo .ics en la carpeta temp_calendar
+        ics_path = temp_calendar_dir / "listing-31351779.ics"
+        ics_path.write_bytes(ics_content)
 
 
+        #ics_path = Path("listing-31351779.ics")
 
-        dtstart = event.get("DTSTART").dt
-        dtend = event.get("DTEND").dt
+        with ics_path.open() as f:
+            calendar = icalendar.Calendar.from_ical(f.read())
 
-      
-        # Calcular la cantidad de días de arriendo
-        dias_arriendo = (dtend - dtstart).days
-        
-        dias_arriendo_totales += dias_arriendo
+        contador = 1
 
-        arriendo = {
-            "Arriendo N°": contador,
-            "Fecha Inicio": str(dtstart),
-            "Fecha Fin": str(dtend),
-            "Días de arriendo": dias_arriendo
-        }
-        arriendos.append(arriendo)
+        dias_arriendo_totales = 0
 
+        arriendos = []
+
+        for event in calendar.walk('VEVENT'):
+            if event.get("SUMMARY") == "Airbnb (Not available)":
+                break
+
+            dtstart = event.get("DTSTART").dt
+            dtend = event.get("DTEND").dt
 
         
-        
-        contador += 1
+            # Calcular la cantidad de días de arriendo
+            dias_arriendo = (dtend - dtstart).days
+            
+            dias_arriendo_totales += dias_arriendo
 
-    arriendos.append({"Dias totales arrendados": dias_arriendo_totales})
+            arriendo = {
+                "Arriendo N°": contador,
+                "Fecha Inicio": str(dtstart),
+                "Fecha Fin": str(dtend),
+                "Días de arriendo": dias_arriendo
+            }
+            arriendos.append(arriendo)
+            contador += 1
 
-    return arriendos
+        arriendos.append({"Dias totales arrendados": dias_arriendo_totales})
+
+        return arriendos
+
+    except Exception as e:
+        print("Error al procesar respuesta: ",e)
+
+        return {"message": str(e)}
 
 
 # En el caso de que quiera guardar el esquema en un json
@@ -79,4 +82,5 @@ def guardar_json(temp_calendar_dir, arriendos):
         print(json.dumps(data, ensure_ascii=False, indent=4))
 
 
-
+def arriendo_json():
+    return download_calendar()

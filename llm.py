@@ -115,7 +115,7 @@ async def response_to_llm(reponse_llm: str):
 
 async def human_query_airbnb(human_query: str):
     # Obtener esquema
-    esquema = arriendo_json()
+    esquema = await arriendo_json()
     
     system_message = f"""
     You are a lease manager, you have to respond in a formal casual manner.
