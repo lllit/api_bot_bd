@@ -118,7 +118,7 @@ async def human_query(payload: PostHumanQueryPayload, current_user: str = Depend
     operation_id="post_human_query_airbnb",
     description="It obtains a natural language query, reads the schema brought to it, and returns in natural language."
 )
-async def human_query(payload: PostHumanQueryPayload, current_user: str = Depends(get_current_user)) -> dict[str, str]:
+async def human_query_airbnb(payload: PostHumanQueryPayload, current_user: str = Depends(get_current_user)) -> dict[str, str]:
     try:
         # Transforma la pregunta a respuesta
         respuesta_llm = await human_query_airbnb(payload.human_query)
