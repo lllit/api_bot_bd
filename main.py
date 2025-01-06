@@ -21,8 +21,17 @@ load_dotenv()
 
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Código que se ejecuta antes de que la aplicación comience a recibir solicitudes
+    await download_calendar()
+    yield
+    # Código que se ejecuta después de que la aplicación haya terminado de manejar solicitudes
+
+
 #app = FastAPI(servers=[{"url": BACKEND_SERVER}])
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 USERNAME_API = os.getenv("USER_API")
 PASSWORD_API = os.getenv("PASSWORD_API") 
@@ -41,12 +50,6 @@ class Token(BaseModel):
     token_type: str
 
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Código que se ejecuta antes de que la aplicación comience a recibir solicitudes
-    await download_calendar()
-    yield
-    # Código que se ejecuta después de que la aplicación haya terminado de manejar solicitudes
 
 
 

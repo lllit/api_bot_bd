@@ -45,9 +45,7 @@ async def download_calendar():
             calendar = icalendar.Calendar.from_ical(f.read())
 
         contador = 1
-
         dias_arriendo_totales = 0
-
         arriendos = []
 
         for event in calendar.walk('VEVENT'):
