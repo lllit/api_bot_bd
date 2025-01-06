@@ -124,7 +124,7 @@ async def human_query_airbnb(human_query: str):
 
     Recibirás un archivo JSON con los días arrendados de una cabaña. Tu tarea es generar una respuesta directa a la pregunta que se te haga, utilizando la información del esquema.
 
-    Recuerda siempre responder en español, tienes que darme respuesta concisas a la pregunta que se te entrega.
+    Recuerda siempre responder en español, en base al esquema tienes que darme respuesta concisas a la pregunta que se te entrega.
 
     Este es el esquema:
     <schema>
