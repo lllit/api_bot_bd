@@ -156,7 +156,7 @@ async def human_response_airbnb(payload: PostHumanQueryPayload, current_user: st
 def get_data_airbnb():
 
     # Ruta al archivo JSON
-    json_path = Path("utils/temp_calendar/arriendos.json")
+    json_path = Path("temp_calendar/arriendos.json")
 
     # Verifica si el archivo existe
     if not json_path.exists():
