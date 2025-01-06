@@ -3,10 +3,23 @@ import icalendar
 import requests
 from pathlib import Path
 import json
+import asyncio
 
-app = FastAPI()
 
-@app.get("/download_calendar")
+# En el caso de que quiera guardar el esquema en un json
+def guardar_json(temp_calendar_dir, arriendos):
+    # Guardar los datos en un archivo JSON
+    json_path = temp_calendar_dir / "arriendos.json"
+    with json_path.open("w", encoding="utf-8") as json_file:
+        json.dump(arriendos, json_file, ensure_ascii=False, indent=4)
+
+    # Leer y mostrar el contenido del archivo JSON
+    with json_path.open("r", encoding="utf-8") as json_file:
+        data = json.load(json_file)
+        print(json.dumps(data, ensure_ascii=False, indent=4))
+
+
+
 async def download_calendar():
     try:
         # URL del archivo .ics
@@ -61,6 +74,8 @@ async def download_calendar():
 
         arriendos.append({"Dias totales arrendados": dias_arriendo_totales})
 
+        guardar_json(temp_calendar_dir, arriendos)
+
         return arriendos
 
     except Exception as e:
@@ -69,18 +84,17 @@ async def download_calendar():
         return {"message": str(e)}
 
 
-# En el caso de que quiera guardar el esquema en un json
-def guardar_json(temp_calendar_dir, arriendos):
-    # Guardar los datos en un archivo JSON
-    json_path = temp_calendar_dir / "arriendos.json"
-    with json_path.open("w", encoding="utf-8") as json_file:
-        json.dump(arriendos, json_file, ensure_ascii=False, indent=4)
 
-    # Leer y mostrar el contenido del archivo JSON
-    with json_path.open("r", encoding="utf-8") as json_file:
-        data = json.load(json_file)
-        print(json.dumps(data, ensure_ascii=False, indent=4))
 
 
 def arriendo_json():
     return download_calendar()
+
+
+
+async def test_calender():
+    esquema = await arriendo_json()
+    print(esquema)
+
+if __name__ == "__main__":
+    asyncio.run(test_calender())

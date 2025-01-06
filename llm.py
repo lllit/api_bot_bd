@@ -112,7 +112,6 @@ async def response_to_llm(reponse_llm: str):
     return response
 
 
-
 async def human_query_airbnb(human_query: str):
     # Obtener esquema
     esquema = await arriendo_json()
@@ -142,7 +141,6 @@ async def human_query_airbnb(human_query: str):
                 "content": user_message,
             }
         ],
-        #response_format={ "type": "json_object" },
         model="llama3-8b-8192",
     )
 

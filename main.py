@@ -1,6 +1,5 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
-
 from utils.security import create_access_token, get_current_user
 
 import json
@@ -9,6 +8,7 @@ from typing import Any
 from llm import human_query_to_sql, human_query_airbnb
 from database import query
 from datetime import timedelta
+from pathlib import Path
 
 from pydantic import BaseModel
 
@@ -145,6 +145,31 @@ async def human_response_airbnb(payload: PostHumanQueryPayload, current_user: st
 
 
         return payload_dict
+
+
+@app.get(
+    path="/get_data_airbnb",
+    name="Get Data Airbnb",
+    description="Returns the data from the Airbnb JSON file."    
+)
+def get_data_airbnb():
+
+    # Ruta al archivo JSON
+    json_path = Path("utils/temp_calendar/arriendos.json")
+
+    # Verifica si el archivo existe
+    if not json_path.exists():
+        return {"error": "El archivo JSON no existe."}
+
+    # Lee el archivo JSON
+    with json_path.open("r", encoding="utf-8") as json_file:
+        data = json.load(json_file)
+
+
+    return data
+
+
+
 
 
 
