@@ -2,7 +2,7 @@ from database import get_schema
 from utils.client_llm import cliente_llm
 from utils.calendar_airbnb import arriendo_json
 
-
+import httpx
 import ollama
 import asyncio
 import json
@@ -114,7 +114,10 @@ async def response_to_llm(reponse_llm: str):
 
 async def human_query_airbnb(human_query: str):
     # Obtener esquema
-    esquema = await arriendo_json()
+    async with httpx.AsyncClient() as client:
+        response = await client.get("https://apibotbd.vercel.app/get_data_airbnb")
+        response.raise_for_status()  # Lanza una excepción si la solicitud falla
+        esquema = response.json()
     
     system_message = f"""
     You are a lease manager, you have to respond in a formal casual manner.
