@@ -120,12 +120,13 @@ async def human_query_airbnb(human_query: str):
         esquema = response.json()
     
     system_message = f"""
-    You are a lease manager, you have to respond in a formal casual manner.
-    Based on the outline I am giving you, you have to generate a direct answer to my question. 
+    Eres un secretario encargado de gestionar arrendamientos de cabañas. Debes responder de manera concreta y formal, basándote en el esquema que te proporciono a continuación.
 
-    Remember to always answer in Spanish
+    Recibirás un archivo JSON con los días arrendados de una cabaña. Tu tarea es generar una respuesta directa a la pregunta que se te haga, utilizando la información del esquema.
 
-    This is the scheme 
+    Recuerda siempre responder en español.
+
+    Este es el esquema:
     <schema>
     {esquema}
     </schema>
