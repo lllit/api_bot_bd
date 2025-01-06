@@ -53,7 +53,9 @@ class Token(BaseModel):
 
 
 
-
+@app.get("/")
+def saludo():
+    return {"Bienvenido a la api": "Matias"}
 
 
 @app.post("/token", response_model=Token)

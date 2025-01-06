@@ -1,0 +1,47 @@
+[
+    {
+        "Arriendo N°": 1,
+        "Fecha Inicio": "2025-01-05",
+        "Fecha Fin": "2025-01-09",
+        "Días de arriendo": 4
+    },
+    {
+        "Arriendo N°": 2,
+        "Fecha Inicio": "2025-01-10",
+        "Fecha Fin": "2025-01-14",
+        "Días de arriendo": 4
+    },
+    {
+        "Arriendo N°": 3,
+        "Fecha Inicio": "2025-01-17",
+        "Fecha Fin": "2025-01-19",
+        "Días de arriendo": 2
+    },
+    {
+        "Arriendo N°": 4,
+        "Fecha Inicio": "2025-01-28",
+        "Fecha Fin": "2025-01-31",
+        "Días de arriendo": 3
+    },
+    {
+        "Arriendo N°": 5,
+        "Fecha Inicio": "2025-02-01",
+        "Fecha Fin": "2025-02-13",
+        "Días de arriendo": 12
+    },
+    {
+        "Arriendo N°": 6,
+        "Fecha Inicio": "2025-02-15",
+        "Fecha Fin": "2025-02-18",
+        "Días de arriendo": 3
+    },
+    {
+        "Arriendo N°": 7,
+        "Fecha Inicio": "2025-02-20",
+        "Fecha Fin": "2025-02-24",
+        "Días de arriendo": 4
+    },
+    {
+        "Dias totales arrendados": 32
+    }
+]
