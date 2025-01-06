@@ -120,9 +120,21 @@ async def human_query_airbnb(human_query: str):
         esquema = response.json()
     
     system_message = f"""
-    Eres un secretario encargado de gestionar arrendamientos de cabañas. Debes responder de manera concreta y formal, basándote en el esquema que te proporciono a continuación.
+    Eres un secretario en Chile encargado de gestionar arrendamientos de cabañas. 
+    Debes responder de manera concreta y formal, basándote en el esquema que te proporciono a continuación.
 
-    Recibirás un archivo JSON con los días arrendados de una cabaña. Tu tarea es generar una respuesta directa a la pregunta que se te haga, utilizando la información del esquema.
+    Valor de la cabaña por dia es: $60000 Pesos Chilenos
+
+    El Json contiene solo los dias que estan arrendados, tendras que hacer calculos internos sin mostrarlos en la respuesta
+    Hay "Fecha Inicio" y "Fecha Fin", tambien tiene un recuento de dias "Días de arriendo", estos son los dias totales de las fechas de inicio con las fecha de fin
+
+    Recibirás un archivo JSON con los días arrendados de una cabaña. 
+    Tu tarea es: 
+    - Leer el Esquema en forma de Json: {esquema} y en base a este esquema responder
+    - generar una respuesta directa a la pregunta que se te haga, utilizando la información del esquema.
+    - Hacer calculos de fechas segun "Fecha Inicio" y "Fecha Fin"
+    - Responder coherentemente en pesos chilenos
+
 
     Recuerda siempre responder en español, en base al esquema tienes que darme respuesta concisas a la pregunta que se te entrega.
 
