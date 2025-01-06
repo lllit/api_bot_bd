@@ -31,7 +31,7 @@ async def download_calendar():
         ics_content = response.content
 
         # Crear la carpeta temp_calendar si no existe
-        temp_calendar_dir = Path("temp_calendar")
+        temp_calendar_dir = Path("/tmp/temp_calendar")
         temp_calendar_dir.mkdir(exist_ok=True)
 
         # Guardar el archivo .ics en la carpeta temp_calendar
