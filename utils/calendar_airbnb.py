@@ -16,7 +16,7 @@ def guardar_json(temp_calendar_dir, arriendos):
     # Leer y mostrar el contenido del archivo JSON
     with json_path.open("r", encoding="utf-8") as json_file:
         data = json.load(json_file)
-        print(json.dumps(data, ensure_ascii=False, indent=4))
+        #print(json.dumps(data, ensure_ascii=False, indent=4))
 
 
 
@@ -31,7 +31,7 @@ async def download_calendar():
         ics_content = response.content
 
         # Crear la carpeta temp_calendar si no existe
-        temp_calendar_dir = Path("/tmp/temp_calendar")
+        temp_calendar_dir = Path("temp_calendar")
         temp_calendar_dir.mkdir(exist_ok=True)
 
         # Guardar el archivo .ics en la carpeta temp_calendar
@@ -90,9 +90,3 @@ def arriendo_json():
 
 
 
-async def test_calender():
-    esquema = await arriendo_json()
-    print(esquema)
-
-if __name__ == "__main__":
-    asyncio.run(test_calender())

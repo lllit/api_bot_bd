@@ -30,6 +30,7 @@ async def lifespan(app: FastAPI):
     # Código que se ejecuta después de que la aplicación haya terminado de manejar solicitudes
 
 
+
 #app = FastAPI(servers=[{"url": BACKEND_SERVER}])
 app = FastAPI(lifespan=lifespan)
 
@@ -172,7 +173,7 @@ async def human_response_airbnb(payload: PostHumanQueryPayload, current_user: st
 def get_data_airbnb():
 
     # Ruta al archivo JSON
-    json_path = Path("/tmp/temp_calendar/arriendos.json")
+    json_path = Path("temp_calendar/arriendos.json")
 
     # Verifica si el archivo existe
     if not json_path.exists():
