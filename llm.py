@@ -112,6 +112,8 @@ async def response_to_llm(reponse_llm: str):
     return response
 
 
+# --------- AIRBNB SECTION -----------------
+
 async def human_query_airbnb(human_query: str):
 
     now = datetime.now()
@@ -144,9 +146,9 @@ async def human_query_airbnb(human_query: str):
     - generar una respuesta directa a la pregunta que se te haga, utilizando la información del esquema.
     - Hacer calculos de fechas segun "Fecha Inicio" y "Fecha Fin"
     - Responder coherentemente en pesos chilenos
-    - Si te preguntan por temas de que dias hay disponible basate en la fecha actual: "Día: {dia}, Mes: {mes}, Año: {año}" y en base a esta fecha ve la disponibilidad 
+    - Si te preguntan por temas de que dias hay disponible basate en la fecha actual: "Día: {dia}, Mes: {mes}, Año: {año}" y en base a esta fecha ve la disponibilidad  
 
-    Recuerda siempre responder en español, en base al esquema tienes que darme respuesta concisas a la pregunta que se te entrega.
+    Recuerda siempre responder en español, en base al esquema tienes que darme respuestas concisas a la pregunta que se te entrega.
 
     Este es el esquema:
     <schema>

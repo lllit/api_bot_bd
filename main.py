@@ -130,7 +130,7 @@ async def human_query(payload: PostHumanQueryPayload, current_user: str = Depend
         return payload_dict
 
     
-
+#--------------- AIRBNB SECTION ----------------------------------
 
 @app.post(
     path="/human_response_airbnb",
