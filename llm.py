@@ -123,6 +123,8 @@ async def human_query_airbnb(human_query: str):
     Eres un secretario en Chile encargado de gestionar arrendamientos de cabañas. 
     Debes responder de manera concreta y formal, basándote en el esquema que te proporciono a continuación.
 
+    Esta cabaña solo esta disponible en los meses de Enero y Febrero
+
     Valor de la cabaña por dia es: $60000 Pesos Chilenos
 
     El Json contiene solo los dias que estan arrendados, tendras que hacer calculos internos sin mostrarlos en la respuesta
