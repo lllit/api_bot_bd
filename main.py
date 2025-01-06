@@ -15,6 +15,8 @@ from pydantic import BaseModel
 
 from dotenv import load_dotenv
 
+from contextlib import asynccontextmanager
+
 load_dotenv()
 
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
@@ -37,6 +39,17 @@ class PostHumanQueryResponse(BaseModel):
 class Token(BaseModel):
     access_token: str
     token_type: str
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Código que se ejecuta antes de que la aplicación comience a recibir solicitudes
+    await download_calendar()
+    yield
+    # Código que se ejecuta después de que la aplicación haya terminado de manejar solicitudes
+
+
+
 
 
 @app.post("/token", response_model=Token)
@@ -172,9 +185,7 @@ def get_data_airbnb():
 
 
 
-@app.on_event("startup")
-async def startup_event():
-    await download_calendar()
+
 
 
 
