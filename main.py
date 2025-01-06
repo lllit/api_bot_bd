@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from utils.security import create_access_token, get_current_user
+from utils.calendar_airbnb import download_calendar
 
 import json
 import os
@@ -167,6 +168,16 @@ def get_data_airbnb():
 
 
     return data
+
+
+
+
+@app.on_event("startup")
+async def startup_event():
+    await download_calendar()
+
+
+
 
 
 
