@@ -4,6 +4,7 @@ import requests
 from pathlib import Path
 import json
 import asyncio
+import csv
 
 
 # En el caso de que quiera guardar el esquema en un json
@@ -72,6 +73,38 @@ async def download_calendar():
 
         arriendos.append({"Dias totales arrendados": dias_arriendo_totales})
 
+        # Agregar la data que falta
+
+
+        # Merge with CSV data
+        csv_path = temp_calendar_dir / "reservations_all.csv"
+
+        with csv_path.open() as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            csv_list = list(csv_reader)
+
+        
+
+        for json_entry in arriendos:
+
+            if 'Fecha Inicio' in json_entry and 'Fecha Fin' in json_entry:
+                for csv_entry in csv_list:
+                    if (json_entry['Fecha Inicio'] == csv_entry['Fecha de inicio'].replace(" ", "") and 
+                        json_entry['Fecha Fin'] == csv_entry['Hasta'].replace(" ", "")):
+                        json_entry.update({
+                            "Código de confirmación": csv_entry["Código de confirmación"],
+                            "Estado": csv_entry["Estado"],
+                            "Nombre del huésped": csv_entry["Nombre del huésped"],
+                            "Contacta": csv_entry["Contacta"],
+                            "Número de adultos": csv_entry["Número de adultos"],
+                            "Número de niños": csv_entry["Número de niños"],
+                            "Número de bebés": csv_entry["Número de bebés"],
+                            "Número de noches": csv_entry["Número de noches"],
+                            "Reservado": csv_entry["Reservado"],
+                            "Anuncio": csv_entry["Anuncio"],
+                            "Ingresos": csv_entry["Ingresos"]
+                        })
+        
         guardar_json(temp_calendar_dir, arriendos)
 
         return arriendos
@@ -82,11 +115,61 @@ async def download_calendar():
         return {"message": str(e)}
 
 
+async def get_esquema_data():
+    try:
+        # Ruta al archivo CSV
+        csv_path = Path("temp_calendar/reservations_all.csv")
 
+        # Leer los datos del archivo CSV
+        with csv_path.open(encoding='utf-8') as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            csv_list = list(csv_reader)
+
+        # Crear la lista de diccionarios con el formato especificado
+        arriendos = []
+        contador = 1
+        dias_totales_arrendados = 0
+
+        for csv_entry in csv_list:
+            dias_arriendo = int(csv_entry["Número de noches"])
+            dias_totales_arrendados += dias_arriendo
+
+            arriendo = {
+                "Arriendo N°": contador,
+                "Fecha Inicio": csv_entry["Fecha de inicio"],
+                "Fecha Fin": csv_entry["Hasta"],
+                "Días de arriendo": dias_arriendo,
+                "Código de confirmación": csv_entry["Código de confirmación"],
+                "Estado": csv_entry["Estado"],
+                "Nombre del huésped": csv_entry["Nombre del huésped"],
+                "Contacta": csv_entry["Contacta"],
+                "Número de adultos": csv_entry["Número de adultos"],
+                "Número de niños": csv_entry["Número de niños"],
+                "Número de bebés": csv_entry["Número de bebés"],
+                "Número de noches": csv_entry["Número de noches"],
+                "Reservado": csv_entry["Reservado"],
+                "Anuncio": csv_entry["Anuncio"],
+                "Ingresos": csv_entry["Ingresos"]
+            }
+            arriendos.append(arriendo)
+            contador += 1
+
+        arriendos.append({"Dias totales arrendados": dias_totales_arrendados})
+
+        # Guardar los datos en un archivo JSON
+        temp_calendar_dir = Path("temp_calendar")
+        guardar_json(temp_calendar_dir, arriendos)
+
+        return arriendos
+
+    except Exception as e:
+        print("Error al procesar respuesta: ", e)
+        return {"message": str(e)}
 
 
 def arriendo_json():
-    return download_calendar()
+    return get_esquema_data()
+
 
 
 

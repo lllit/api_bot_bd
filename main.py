@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from utils.security import create_access_token, get_current_user
-from utils.calendar_airbnb import download_calendar
+from utils.calendar_airbnb import download_calendar, arriendo_json
 
 import json
 import os
@@ -25,7 +25,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Código que se ejecuta antes de que la aplicación comience a recibir solicitudes
-    await download_calendar()
+    #await download_calendar()
+    await arriendo_json()
     yield
     # Código que se ejecuta después de que la aplicación haya terminado de manejar solicitudes
 

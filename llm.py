@@ -1,6 +1,5 @@
 from database import get_schema
 from utils.client_llm import cliente_llm
-from utils.calendar_airbnb import arriendo_json
 
 import httpx
 import ollama
@@ -135,9 +134,9 @@ async def human_query_airbnb(human_query: str):
 
     Esta cabaña solo esta disponible en los meses de Enero y Febrero
 
-    Valor de la cabaña por dia es: $60000 Pesos Chilenos
+    Valor de la cabaña por noche es: $60000 Pesos Chilenos
 
-    El Json contiene solo los dias que estan arrendados, tendras que hacer calculos internos sin mostrarlos en la respuesta
+    El Json contiene solo las noches que estan arrendados, tendras que hacer calculos internos y solo dar la respuesta concreta
     Hay "Fecha Inicio" y "Fecha Fin", tambien tiene un recuento de dias "Días de arriendo", estos son los dias totales de las fechas de inicio con las fecha de fin
 
     Recibirás un archivo JSON con los días arrendados de una cabaña. 
@@ -146,7 +145,8 @@ async def human_query_airbnb(human_query: str):
     - generar una respuesta directa a la pregunta que se te haga, utilizando la información del esquema.
     - Hacer calculos de fechas segun "Fecha Inicio" y "Fecha Fin"
     - Responder coherentemente en pesos chilenos
-    - Si te preguntan por temas de que dias hay disponible basate en la fecha actual: "Día: {dia}, Mes: {mes}, Año: {año}" y en base a esta fecha ve la disponibilidad  
+    - Si te preguntan por temas de que noches hay disponible, basate en la fecha actual: "Día: {dia}, Mes: {mes}, Año: {año}" y en base a esta fecha ve la disponibilidad  
+    - Ten encuenta de que los pasajeros tienes que hacer el checkin a las 14:00 y el checkout es a las 12:00, 
 
     Recuerda siempre responder en español, en base al esquema tienes que darme respuestas concisas a la pregunta que se te entrega.
 
@@ -154,6 +154,85 @@ async def human_query_airbnb(human_query: str):
     <schema>
     {esquema}
     </schema>
+
+    Datos necesarios en el caso de que pregunten mas informacion adicional de la cabaña:
+
+    Cuenta con:
+    - 2 Dormitorios.
+    - TV por cable
+    - Wifi
+    - calefaccion toyotomi y estufa a leña
+    - 1 baño
+    - Cocina equipada completa
+
+    Comodidades
+        - Agua caliente
+        - Calefacción
+        - Cocina
+        - Los huéspedes pueden cocinar en este espacio
+        - Estacionamiento gratuito en la calle
+        - Estacionamiento gratuito en las instalaciones
+        - Ganchos para la ropa
+        - Horno
+        - Lavadora
+        - Lavavajillas
+        - Microondas
+        - Plancha
+        - Platos y cubiertos
+        - Bols, palitos chinos, platos, tazas, etc.
+        - Refrigerador
+        - Servicios imprescindibles
+        - Toallas, sábanas, jabón y papel higiénico
+        - TV
+        - Utensilios básicos para cocinar
+        - Ollas y sartenes, aceite, sal y pimienta
+        - Wifi
+        - Disponible en todo el alojamiento
+
+
+    Dirección
+
+    - Presidente Patricio Alwyn Azócar
+
+    Departamento, piso, etc. (si corresponde)
+
+    - 701
+
+    Ciudad / pueblo / municipio
+
+    - Puerto Varas
+
+    Región
+
+    - Regios de los Lagos
+
+    Direccion completa: Aylwin Azocar - Pdte. Patricio Alwyn Azócar 701, Puerto Varas, Los Lagos
+    
+    UBICACION EXACTA (LINK DE GOOGLE MAPS): https://www.google.com/maps/place/Aylwin+Azocar+-+Pdte.+Patricio+Alwyn+Az%C3%B3car+701,+Puerto+Varas,+Los+Lagos/@-41.3131248,-72.9944937,59m/data=!3m1!1e3!4m6!3m5!1s0x961820d4bf672cdf:0x9a3b37a94c43d656!8m2!3d-41.3130474!4d-72.9945193!16s%2Fg%2F11tf45g1vf?hl=es&entry=ttu&g_ep=EgoyMDI1MDEwOC4wIKXMDSoASAFQAw%3D%3D
+
+    
+    
+    ## Reglas de la casa
+
+    - No se admiten mascotas
+
+    - No se admiten eventos con musica fuerte despues de las 23:00
+
+
+    - No Está permitido fumar cigarrillos.
+
+    
+    Se permite la fotografía y la filmación comerciales
+
+    Número de personas: 4
+
+
+    Horas de check-in y check-out
+    Llegada: de 14:00 a 00:00.
+    Salida antes de las 12:00 PM.
+
+
+    
     """
 
     user_message = human_query
@@ -166,7 +245,7 @@ async def human_query_airbnb(human_query: str):
             },
             {
                 "role": "user",
-                "content": user_message,
+                "content": f"Tienes que responder esta pregunta: {user_message}, quiero respuestas directas, sin tanto texto",
             }
         ],
         model="llama3-8b-8192",
