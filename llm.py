@@ -4,10 +4,12 @@ from utils.client_llm import cliente_llm
 import httpx
 import ollama
 from datetime import datetime
+import pytz
 
 cliente = cliente_llm()
 
-
+# Define la zona horaria de Chile
+chile_tz = pytz.timezone('America/Santiago')
 
 async def human_query_to_sql(human_query: str):
 
@@ -113,9 +115,13 @@ async def response_to_llm(reponse_llm: str):
 
 # --------- AIRBNB SECTION -----------------
 
+
+
 async def human_query_airbnb(human_query: str):
 
-    now = datetime.now()
+
+
+    now = datetime.now(chile_tz)
 
     # Obtener el día, mes y año
     dia = now.day
@@ -183,7 +189,7 @@ async def human_query_airbnb(human_query: str):
     Dirección:
     - Presidente Patricio Alwyn Azócar 701, Puerto Varas, Los Lagos
     - Link de google maps: https://www.google.com/maps/place/Aylwin+Azocar+-+Pdte.+Patricio+Alwyn+Az%C3%B3car+701,+Puerto+Varas,+Los+Lagos/@-41.3131248,-72.9944937,59m/data=!3m1!1e3!4m6!3m5!1s0x961820d4bf672cdf:0x9a3b37a94c43d656!8m2!3d-41.3130474!4d-72.9945193!16s%2Fg%2F11tf45g1vf?hl=es&entry=ttu&g_ep=EgoyMDI1MDEwOC4wIKXMDSoASAFQAw%3D%3D
-    
+
     Reglas de la casa:
     - No se admiten mascotas
     - No se admiten eventos con música fuerte después de las 23:00
