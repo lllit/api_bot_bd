@@ -146,8 +146,9 @@ async def human_query_airbnb(human_query: str):
     - Generar una respuesta directa a la pregunta utilizando la información del esquema.
     - Hacer cálculos de fechas según "Fecha Inicio" y "Fecha Fin" (quiero que tengas en cuenta el check-in y check-out).
     - Responder en pesos chilenos.
-    - Si te preguntan por noches disponibles, usa la fecha actual: "Día: {dia}, Mes: {mes}, Año: {año}" para verificar disponibilidad.
+    - Si te preguntan por noches disponibles, usa la fecha actual: "{dia}/{mes}/{año}" para verificar disponibilidad.
     - Recuerda que el check-in es a las 14:00 y el check-out es a las 12:00.
+    
 
     Responde siempre en español, de manera concisa y basada en el esquema.
 
