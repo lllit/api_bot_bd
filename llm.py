@@ -153,6 +153,8 @@ async def human_query_airbnb(human_query: str):
     Responde siempre en español, de manera concisa y basada en el esquema.
 
     El esquema incluye "Ingresos", que es el valor pagado por el arriendo total.
+    El esquema trae todos los dias que estan arrendados.
+
 
     Esquema:
     <schema>
@@ -163,6 +165,9 @@ async def human_query_airbnb(human_query: str):
 
     Cuenta con:
     - 2 Dormitorios
+    - 1 Cama Matrimonial
+    - 2 Cama de media plaza
+    - 1 Sillon Cama
     - TV por cable
     - Wifi
     - Calefacción toyotomi y estufa a leña

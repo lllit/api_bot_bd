@@ -1,6 +1,6 @@
 [
     {
-        "Arriendo N°": 1,
+        "N°": 1,
         "Fecha Inicio": "20/2/2025",
         "Fecha Fin": "24/2/2025",
         "Días de arriendo": 4,
@@ -17,7 +17,7 @@
         "Ingresos": "$231,432"
     },
     {
-        "Arriendo N°": 2,
+        "N°": 2,
         "Fecha Inicio": "15/2/2025",
         "Fecha Fin": "18/2/2025",
         "Días de arriendo": 3,
@@ -34,7 +34,7 @@
         "Ingresos": "$173,577"
     },
     {
-        "Arriendo N°": 3,
+        "N°": 3,
         "Fecha Inicio": "1/2/2025",
         "Fecha Fin": "13/2/2025",
         "Días de arriendo": 12,
@@ -51,7 +51,7 @@
         "Ingresos": "$604,038"
     },
     {
-        "Arriendo N°": 4,
+        "N°": 4,
         "Fecha Inicio": "28/1/2025",
         "Fecha Fin": "31/1/2025",
         "Días de arriendo": 3,
@@ -68,7 +68,7 @@
         "Ingresos": "$173,574"
     },
     {
-        "Arriendo N°": 5,
+        "N°": 5,
         "Fecha Inicio": "17/1/2025",
         "Fecha Fin": "19/1/2025",
         "Días de arriendo": 2,
@@ -85,7 +85,7 @@
         "Ingresos": "$115,716"
     },
     {
-        "Arriendo N°": 6,
+        "N°": 6,
         "Fecha Inicio": "10/1/2025",
         "Fecha Fin": "14/1/2025",
         "Días de arriendo": 4,
@@ -102,7 +102,7 @@
         "Ingresos": "$231,432"
     },
     {
-        "Arriendo N°": 7,
+        "N°": 7,
         "Fecha Inicio": "5/1/2025",
         "Fecha Fin": "9/1/2025",
         "Días de arriendo": 4,
@@ -119,7 +119,7 @@
         "Ingresos": "$197,679"
     },
     {
-        "Arriendo N°": 8,
+        "N°": 8,
         "Fecha Inicio": "2/1/2025",
         "Fecha Fin": "4/1/2025",
         "Días de arriendo": 2,
