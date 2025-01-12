@@ -135,7 +135,7 @@ async def get_esquema_data():
             dias_totales_arrendados += dias_arriendo
 
             arriendo = {
-                "N°": contador,
+                "id": contador,
                 "Fecha Inicio": csv_entry["Fecha de inicio"],
                 "Fecha Fin": csv_entry["Hasta"],
                 "Días de arriendo": dias_arriendo,

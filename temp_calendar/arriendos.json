@@ -1,6 +1,6 @@
 [
     {
-        "N°": 1,
+        "id": 1,
         "Fecha Inicio": "20/2/2025",
         "Fecha Fin": "24/2/2025",
         "Días de arriendo": 4,
@@ -17,7 +17,7 @@
         "Ingresos": "$231,432"
     },
     {
-        "N°": 2,
+        "id": 2,
         "Fecha Inicio": "15/2/2025",
         "Fecha Fin": "18/2/2025",
         "Días de arriendo": 3,
@@ -34,7 +34,7 @@
         "Ingresos": "$173,577"
     },
     {
-        "N°": 3,
+        "id": 3,
         "Fecha Inicio": "1/2/2025",
         "Fecha Fin": "13/2/2025",
         "Días de arriendo": 12,
@@ -51,7 +51,7 @@
         "Ingresos": "$604,038"
     },
     {
-        "N°": 4,
+        "id": 4,
         "Fecha Inicio": "28/1/2025",
         "Fecha Fin": "31/1/2025",
         "Días de arriendo": 3,
@@ -68,7 +68,24 @@
         "Ingresos": "$173,574"
     },
     {
-        "N°": 5,
+        "id": 5,
+        "Fecha Inicio": "19/1/2025",
+        "Fecha Fin": "22/1/2025",
+        "Días de arriendo": 3,
+        "Código de confirmación": "HMC5S2982M",
+        "Estado": "Confirmada",
+        "Nombre del huésped": "Martin Labarca",
+        "Contacta": "+56 9 8493 9423",
+        "Número de adultos": "4",
+        "Número de niños": "0",
+        "Número de bebés": "0",
+        "Número de noches": "3",
+        "Reservado": "2025-01-11",
+        "Anuncio": "Arriendo Departamento Full equipado Puerto varas",
+        "Ingresos": "$173,574"
+    },
+    {
+        "id": 6,
         "Fecha Inicio": "17/1/2025",
         "Fecha Fin": "19/1/2025",
         "Días de arriendo": 2,
@@ -85,7 +102,7 @@
         "Ingresos": "$115,716"
     },
     {
-        "N°": 6,
+        "id": 7,
         "Fecha Inicio": "10/1/2025",
         "Fecha Fin": "14/1/2025",
         "Días de arriendo": 4,
@@ -102,7 +119,7 @@
         "Ingresos": "$231,432"
     },
     {
-        "N°": 7,
+        "id": 8,
         "Fecha Inicio": "5/1/2025",
         "Fecha Fin": "9/1/2025",
         "Días de arriendo": 4,
@@ -119,7 +136,7 @@
         "Ingresos": "$197,679"
     },
     {
-        "N°": 8,
+        "id": 9,
         "Fecha Inicio": "2/1/2025",
         "Fecha Fin": "4/1/2025",
         "Días de arriendo": 2,
@@ -136,6 +153,6 @@
         "Ingresos": "$115,714"
     },
     {
-        "Dias totales arrendados": 34
+        "Dias totales arrendados": 37
     }
 ]
