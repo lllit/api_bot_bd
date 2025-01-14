@@ -70,10 +70,10 @@ time.sleep(5)
 try:
 
    # Usar pywinauto para interactuar con la ventana de confirmación de ruta
-    app = Application(backend="win32").connect(title_re=".*www.airbnb.cl desea guardar.*", timeout=5)
+    app = Application(backend="win32").connect(title_re=".*www.airbnb.cl desea guardar.*", timeout=20)
     save_as_dialog = app.window(title_re=".*www.airbnb.cl desea guardar.*")
-    save_as_dialog.wait('visible', timeout=5)
-    save_as_dialog.child_window(title="Guardar", control_type="Button").wait('enabled', timeout=5).click()
+    save_as_dialog.wait('visible', timeout=20)
+    save_as_dialog.child_window(title="Guardar", control_type="Button").wait('enabled', timeout=20).click()
     
 except Exception as e:
     print(e)
