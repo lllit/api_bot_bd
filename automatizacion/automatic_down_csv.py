@@ -65,7 +65,7 @@ time.sleep(10)
 # Descargar el archivo después de la autenticación
 driver.get('https://www.airbnb.cl/api/v2/download_reservations?_format=for_remy&_limit=40&_offset=0&collection_strategy=for_reservations_list&date_max=2025-03-01&date_min=2024-12-31&listing_id=31351779&sort_field=start_date&sort_order=desc&status=accepted%2Crequest%2Ccanceled&page=1&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&currency=CLP&locale=es-XL')
 
-time.sleep(10)
+time.sleep(5)
 
 try:
 
