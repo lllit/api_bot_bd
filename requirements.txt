@@ -48,7 +48,6 @@ python-dotenv==1.0.1
 python-jose==3.3.0
 python-multipart==0.0.20
 pytz==2024.2
-pywin32==308
 pywinauto==0.6.9
 PyYAML==6.0.2
 requests==2.32.3
