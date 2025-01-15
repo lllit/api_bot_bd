@@ -141,10 +141,18 @@ async def human_query_airbnb(human_query: str):
 
     - El JSON contiene las noches arrendadas. Se te hara una pregunta en lenguaje natural y tienes que analizar el esquema, en base al esquema tienes dar una respuesta Coherente
 
+    - Tienes que entender que el esquema tiene algo como: 
+        Ejemplo:
+        "Fecha Inicio": "17/1/2025", "Fecha Fin": "19/1/2025", el 17, 18, 19 estan arrendados, y se tendran que ir el 19 antes de las 11
+        Asi va a pasar con todas las fechas de inicio y de fin, seran diferentes los dias, tienes que analizar esto.
+        Si esque te preguntan algun dia entremedio de la fecha inicio y fecha de fin 
+            - por ejemplo el 18 de enero este dia esta arrendado ya que esta entre las fechas de inicio y de fin
+
+            
     - Hay "Fecha Inicio" y "Fecha Fin", para sacar los dias que estan arrendados, tienes que restar la fecha de inicio con la fecha de fin 
     - "Días de arriendo" son el total de dias que se estan arrendados entre la Fecha Inicio con la Fecha Fin
     - Cuando te pregunten ¿Que dias tienes arrendados? tienes que dar todos las fechas, incluyendo Fechas de inicio con fecha de fin
-    
+
 
     - Recibirás un archivo JSON con las noches arrendados de una cabaña. Tu tarea es:
     - Leer el esquema en forma de JSON: {esquema} y responder en base a este.
