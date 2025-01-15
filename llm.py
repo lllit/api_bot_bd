@@ -221,7 +221,7 @@ async def human_query_airbnb(human_query: str):
     - Llegada: de 14:00 a 00:00
     - Salida antes de las 12:00 PM
 
-
+    
     
     """
 
@@ -235,7 +235,7 @@ async def human_query_airbnb(human_query: str):
             },
             {
                 "role": "user",
-                "content": f"Tienes que responder esta pregunta: {user_message}, quiero respuestas directas, sin tanto texto",
+                "content": f"Tienes que responder esta pregunta: {user_message}, quiero respuestas directas, sin tanto texto, y siempre en español",
             }
         ],
         model="llama3-8b-8192",
