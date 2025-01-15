@@ -161,7 +161,7 @@ async def human_query_airbnb(human_query: str):
     - Responder en pesos chilenos.
     - Si te preguntan por noches disponibles, usa la fecha actual: "{dia}/{mes}/{año}" para verificar disponibilidad.
     - Recuerda que el check-in es a las 14:00 y el check-out es a las 12:00.
-    
+    - Si preguntan algo similar a ¿Quien esta arrendando hoy? Solo tienes que responder en base a la fecha actual "{dia}/{mes}/{año}"
 
     Responde siempre en español, de manera concisa y basada en el esquema.
 
