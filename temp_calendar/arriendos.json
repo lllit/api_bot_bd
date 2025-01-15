@@ -103,11 +103,28 @@
     },
     {
         "id": 7,
+        "Fecha Inicio": "15/1/2025",
+        "Fecha Fin": "17/1/2025",
+        "Días de arriendo": 2,
+        "Código de confirmación": "HMAMD5ZANW",
+        "Estado": "Estadía en curso",
+        "Nombre del huésped": "Tomás Nicolás García De La Huerta",
+        "Contacta": "+56 9 8822 3200",
+        "Número de adultos": "1",
+        "Número de niños": "0",
+        "Número de bebés": "0",
+        "Número de noches": "2",
+        "Reservado": "2025-01-15",
+        "Anuncio": "Arriendo Departamento Full equipado Puerto varas",
+        "Ingresos": "$115,716"
+    },
+    {
+        "id": 8,
         "Fecha Inicio": "10/1/2025",
         "Fecha Fin": "14/1/2025",
         "Días de arriendo": 4,
         "Código de confirmación": "HMCTHDQPWM",
-        "Estado": "Estadía en curso",
+        "Estado": "Evalúa al huésped",
         "Nombre del huésped": "Oscar Alarcón Arroyo",
         "Contacta": "+56 9 9643 0244",
         "Número de adultos": "3",
@@ -119,12 +136,12 @@
         "Ingresos": "$231,432"
     },
     {
-        "id": 8,
+        "id": 9,
         "Fecha Inicio": "5/1/2025",
         "Fecha Fin": "9/1/2025",
         "Días de arriendo": 4,
         "Código de confirmación": "HMXBNB5YNE",
-        "Estado": "Evalúa al huésped",
+        "Estado": "Evalúa al huésped, el plazo vence pronto",
         "Nombre del huésped": "Pablo López",
         "Contacta": "+598 99 516 208",
         "Número de adultos": "2",
@@ -136,7 +153,7 @@
         "Ingresos": "$197,679"
     },
     {
-        "id": 9,
+        "id": 10,
         "Fecha Inicio": "2/1/2025",
         "Fecha Fin": "4/1/2025",
         "Días de arriendo": 2,
@@ -153,6 +170,6 @@
         "Ingresos": "$115,714"
     },
     {
-        "Dias totales arrendados": 37
+        "Dias totales arrendados": 39
     }
 ]
