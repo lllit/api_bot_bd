@@ -69,11 +69,28 @@
     },
     {
         "id": 5,
+        "Fecha Inicio": "24/1/2025",
+        "Fecha Fin": "27/1/2025",
+        "Días de arriendo": 3,
+        "Código de confirmación": "HMEZWA9H8A",
+        "Estado": "Confirmada",
+        "Nombre del huésped": "Marcia Elizabeth Zuñiga Rivas",
+        "Contacta": "+56 9 9400 8411",
+        "Número de adultos": "4",
+        "Número de niños": "0",
+        "Número de bebés": "0",
+        "Número de noches": "3",
+        "Reservado": "2025-01-18",
+        "Anuncio": "Arriendo Departamento Full equipado Puerto varas",
+        "Ingresos": "$173,574"
+    },
+    {
+        "id": 6,
         "Fecha Inicio": "19/1/2025",
         "Fecha Fin": "22/1/2025",
         "Días de arriendo": 3,
         "Código de confirmación": "HMC5S2982M",
-        "Estado": "Confirmada",
+        "Estado": "Estadía en curso",
         "Nombre del huésped": "Martin Labarca",
         "Contacta": "+56 9 8493 9423",
         "Número de adultos": "4",
@@ -85,12 +102,12 @@
         "Ingresos": "$173,574"
     },
     {
-        "id": 6,
+        "id": 7,
         "Fecha Inicio": "17/1/2025",
         "Fecha Fin": "19/1/2025",
         "Días de arriendo": 2,
         "Código de confirmación": "HMB9F4AF2J",
-        "Estado": "Estadía en curso",
+        "Estado": "Evalúa al huésped",
         "Nombre del huésped": "Constanza García Serra",
         "Contacta": "+56 9 9541 8087",
         "Número de adultos": "4",
@@ -102,7 +119,7 @@
         "Ingresos": "$115,716"
     },
     {
-        "id": 7,
+        "id": 8,
         "Fecha Inicio": "15/1/2025",
         "Fecha Fin": "17/1/2025",
         "Días de arriendo": 2,
@@ -119,7 +136,7 @@
         "Ingresos": "$115,716"
     },
     {
-        "id": 8,
+        "id": 9,
         "Fecha Inicio": "10/1/2025",
         "Fecha Fin": "14/1/2025",
         "Días de arriendo": 4,
@@ -136,7 +153,7 @@
         "Ingresos": "$231,432"
     },
     {
-        "id": 9,
+        "id": 10,
         "Fecha Inicio": "5/1/2025",
         "Fecha Fin": "9/1/2025",
         "Días de arriendo": 4,
@@ -153,14 +170,14 @@
         "Ingresos": "$197,679"
     },
     {
-        "id": 10,
+        "id": 11,
         "Fecha Inicio": "2/1/2025",
         "Fecha Fin": "4/1/2025",
         "Días de arriendo": 2,
         "Código de confirmación": "HMZFPXW23A",
-        "Estado": "Evalúa al huésped, el plazo vence pronto",
+        "Estado": "Huésped anterior",
         "Nombre del huésped": "Mariana Fernandez Najle",
-        "Contacta": "+54 249 449-2489",
+        "Contacta": "",
         "Número de adultos": "4",
         "Número de niños": "0",
         "Número de bebés": "0",
@@ -170,6 +187,6 @@
         "Ingresos": "$115,714"
     },
     {
-        "Dias totales arrendados": 39
+        "Dias totales arrendados": 42
     }
 ]
