@@ -20,3 +20,6 @@ demo
 test
 brain_mapu/data/Diccionario_mapudungun.pdf
 brain_mapu/data/Diccionario-mapudungun-espanol-espanol-mapudungun.pdf
+
+brain_mapu/*
+test/*
