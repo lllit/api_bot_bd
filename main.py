@@ -54,12 +54,12 @@ class Token(BaseModel):
 
 
 
-@app.get("/")
+@app.get("/", tags=["Inicio"])
 def saludo():
-    return {"Bienvenido a la api": "Matias"}
+    return {"Bienvenido a la api": ""}
 
 
-@app.post("/token", response_model=Token)
+@app.post("/token", response_model=Token, tags=["Login"])
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
     # Aquí deberías validar el usuario y la contraseña
     # Este es un ejemplo simple que acepta cualquier usuario y contraseña
@@ -80,7 +80,8 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     path="/human_query",
     name="Human Query",
     operation_id="post_human_query",
-    description="Gets a natural language query, internally transforms it to a SQL query, queries the database, and returns the result."
+    description="Gets a natural language query, internally transforms it to a SQL query, queries the database, and returns the result.",
+    tags=["Codes LLLIT"]
 )
 async def human_query(payload: PostHumanQueryPayload, current_user: str = Depends(get_current_user)) -> dict[str, str]:
     
@@ -137,7 +138,8 @@ async def human_query(payload: PostHumanQueryPayload, current_user: str = Depend
     path="/human_response_airbnb",
     name="Human Query Airbnb",
     operation_id="post_human_query_airbnb",
-    description="It obtains a natural language query, reads the schema brought to it, and returns in natural language."
+    description="It obtains a natural language query, reads the schema brought to it, and returns in natural language.",
+    tags=["Airbnb"] 
 )
 async def human_response_airbnb(payload: PostHumanQueryPayload, current_user: str = Depends(get_current_user)) -> dict[str, str]:
     try:
@@ -171,7 +173,8 @@ async def human_response_airbnb(payload: PostHumanQueryPayload, current_user: st
 @app.get(
     path="/get_data_airbnb",
     name="Get Data Airbnb",
-    description="Returns the data from the Airbnb JSON file."    
+    description="Returns the data from the Airbnb JSON file.",
+    tags=["Airbnb"]   
 )
 def get_data_airbnb():
 
@@ -193,8 +196,29 @@ def get_data_airbnb():
 
 
 
+# ------------------- API DATA_MAPU -------------
+
+@app.get(
+    path="/get_data_mapu",
+    name="Obtener Informacion Mapuche",
+    description="Returns the data from the MapuFiles JSON file.",
+    tags=["Mapu Data"]     
+)
+def get_data_mapu():
+
+    # Ruta al archivo JSON
+    json_path = Path("temp_calendar/mapu/mapu.json")
+
+    # Verifica si el archivo existe
+    if not json_path.exists():
+        return {"error": "El archivo JSON no existe."}
+
+    # Lee el archivo JSON
+    with json_path.open("r", encoding="utf-8") as json_file:
+        data = json.load(json_file)
 
 
+    return data
 
 
 

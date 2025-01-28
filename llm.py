@@ -119,8 +119,6 @@ async def response_to_llm(reponse_llm: str):
 
 async def human_query_airbnb(human_query: str):
 
-
-
     now = datetime.now(chile_tz)
 
     # Obtener el día, mes y año
@@ -251,16 +249,8 @@ async def human_query_airbnb(human_query: str):
     
 
 
-
-
-
-
-
-
-
-
-
-
+# -----------------------------------------
+# --------------- MAPU_SECTION -----------.
 
 
 
