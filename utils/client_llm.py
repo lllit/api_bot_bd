@@ -9,3 +9,6 @@ def cliente_llm():
     )
     
     return client
+
+if __name__ == "__main__":
+    cliente_llm()
