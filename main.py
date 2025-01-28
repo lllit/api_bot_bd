@@ -196,36 +196,6 @@ def get_data_airbnb():
 
 
 
-# ------------------- API DATA_MAPU -------------
-
-@app.get(
-    path="/get_data_mapu",
-    name="Obtener Informacion Mapuche",
-    description="Returns the data from the MapuFiles JSON file.",
-    tags=["Mapu Data"]     
-)
-def get_data_mapu():
-
-    # Ruta al archivo JSON
-    json_path = Path("temp_calendar/mapu/mapu.json")
-
-    # Verifica si el archivo existe
-    if not json_path.exists():
-        return {"error": "El archivo JSON no existe."}
-
-    # Lee el archivo JSON
-    with json_path.open("r", encoding="utf-8") as json_file:
-        data = json.load(json_file)
-
-
-    return data
-
-
-
-
-
-
-
 async def build_answer(result: list[dict[str, Any]], human_query: str) -> str | None:
 
     from utils.client_llm import cliente_llm

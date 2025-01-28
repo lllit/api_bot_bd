@@ -249,12 +249,6 @@ async def human_query_airbnb(human_query: str):
     
 
 
-# -----------------------------------------
-# --------------- MAPU_SECTION -----------.
-
-
-
-
 
 
 
