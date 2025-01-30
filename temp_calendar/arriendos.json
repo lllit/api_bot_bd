@@ -35,6 +35,23 @@
     },
     {
         "id": 3,
+        "Fecha Inicio": "18/2/2025",
+        "Fecha Fin": "20/2/2025",
+        "Días de arriendo": 2,
+        "Código de confirmación": "HM2EQWFY5Q",
+        "Estado": "Confirmada",
+        "Nombre del huésped": "Joseph Anés",
+        "Contacta": "+56 9 4531 8865",
+        "Número de adultos": "3",
+        "Número de niños": "1",
+        "Número de bebés": "1",
+        "Número de noches": "2",
+        "Reservado": "2025-01-30",
+        "Anuncio": "Arriendo Departamento Full equipado Puerto varas",
+        "Ingresos": "$115,716"
+    },
+    {
+        "id": 4,
         "Fecha Inicio": "15/2/2025",
         "Fecha Fin": "18/2/2025",
         "Días de arriendo": 3,
@@ -51,7 +68,7 @@
         "Ingresos": "$173,577"
     },
     {
-        "id": 4,
+        "id": 5,
         "Fecha Inicio": "1/2/2025",
         "Fecha Fin": "13/2/2025",
         "Días de arriendo": 12,
@@ -68,7 +85,7 @@
         "Ingresos": "$604,038"
     },
     {
-        "id": 5,
+        "id": 6,
         "Fecha Inicio": "28/1/2025",
         "Fecha Fin": "31/1/2025",
         "Días de arriendo": 3,
@@ -85,7 +102,7 @@
         "Ingresos": "$173,574"
     },
     {
-        "id": 6,
+        "id": 7,
         "Fecha Inicio": "24/1/2025",
         "Fecha Fin": "27/1/2025",
         "Días de arriendo": 3,
@@ -102,12 +119,12 @@
         "Ingresos": "$173,574"
     },
     {
-        "id": 7,
+        "id": 8,
         "Fecha Inicio": "22/1/2025",
         "Fecha Fin": "24/1/2025",
         "Días de arriendo": 2,
         "Código de confirmación": "HMERYRF4FT",
-        "Estado": "Evalúa al huésped",
+        "Estado": "Evalúa al huésped, el plazo vence pronto",
         "Nombre del huésped": "Matias Rojas",
         "Contacta": "+56 9 9998 0822",
         "Número de adultos": "1",
@@ -119,7 +136,7 @@
         "Ingresos": "$115,718"
     },
     {
-        "id": 8,
+        "id": 9,
         "Fecha Inicio": "19/1/2025",
         "Fecha Fin": "22/1/2025",
         "Días de arriendo": 3,
@@ -136,7 +153,7 @@
         "Ingresos": "$173,574"
     },
     {
-        "id": 9,
+        "id": 10,
         "Fecha Inicio": "17/1/2025",
         "Fecha Fin": "19/1/2025",
         "Días de arriendo": 2,
@@ -153,7 +170,7 @@
         "Ingresos": "$115,716"
     },
     {
-        "id": 10,
+        "id": 11,
         "Fecha Inicio": "15/1/2025",
         "Fecha Fin": "17/1/2025",
         "Días de arriendo": 2,
@@ -170,7 +187,7 @@
         "Ingresos": "$115,716"
     },
     {
-        "id": 11,
+        "id": 12,
         "Fecha Inicio": "10/1/2025",
         "Fecha Fin": "14/1/2025",
         "Días de arriendo": 4,
@@ -187,7 +204,7 @@
         "Ingresos": "$231,432"
     },
     {
-        "id": 12,
+        "id": 13,
         "Fecha Inicio": "5/1/2025",
         "Fecha Fin": "9/1/2025",
         "Días de arriendo": 4,
@@ -204,7 +221,7 @@
         "Ingresos": "$197,679"
     },
     {
-        "id": 13,
+        "id": 14,
         "Fecha Inicio": "2/1/2025",
         "Fecha Fin": "4/1/2025",
         "Días de arriendo": 2,
@@ -221,6 +238,6 @@
         "Ingresos": "$115,714"
     },
     {
-        "Dias totales arrendados": 47
+        "Dias totales arrendados": 49
     }
 ]
