@@ -45,7 +45,7 @@ pyparsing==3.2.1
 PySocks==1.7.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
-python-jose==3.3.0
+python-jose==3.4.0
 python-multipart==0.0.20
 pytz==2024.2
 pywinauto==0.6.9
